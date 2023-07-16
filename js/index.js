@@ -32,6 +32,10 @@ function onBodyLoad() {
     
     save();
   });
+
+  window.onbeforeunload = function () {
+    return Boolean(getInput().value.length);
+  }
 }
 
 function focusInput() {
