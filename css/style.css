@@ -1,0 +1,61 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 24px;
+  line-height: 1.5;
+  color: #393939;
+  background-color: #f1f1f1;
+}
+
+#inputText {
+  height: 100vh;
+  min-width: 50vw;
+  text-align: right;
+  font-size: 24px;
+  border: none;
+  text-indent: 16px;
+  background-color: #f1f1f1;
+
+  mask-image: gradient(linear, right, left,
+      from(rgba(0, 0, 0, 1)), to(rgba(0, 0, 0, 0)));
+}
+
+#inputText:focus {
+  outline: none;
+}
+
+#header {
+  width: 100vw;
+  height: 80px;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#header #logo {
+  height: 32px;
+  margin-left: 24px;
+  line-height: 32px;
+}
+
+#header #spacer {
+  flex-grow: 1;
+}
+
+#header #buttons {
+  display: flex;
+  flex-direction: row;
+  margin-right: 16px;
+}
+
+#header #buttons svg {
+  width: 32px;
+  height: 32px;
+  margin: 0 8px;
+  fill: #393939;
+  cursor: pointer;
+}
