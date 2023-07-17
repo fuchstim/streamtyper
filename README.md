@@ -10,7 +10,7 @@
   </p>
 
   <img src="images/screenshot-light.png#gh-light-mode-only" alt="Screenshot">
-  <img src="images/screenshot-dakr.png#gh-dark-mode-only" alt="Screenshot">
+  <img src="images/screenshot-dark.png#gh-dark-mode-only" alt="Screenshot">
 </div>
 
 ## ToDo
