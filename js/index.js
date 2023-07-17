@@ -1,3 +1,5 @@
+let confirmLeavePage = false;
+
 function onBodyLoad() {
   const input = getInput();
 
@@ -23,6 +25,10 @@ function onBodyLoad() {
     }
   });
 
+  input.addEventListener('input', function() {
+    confirmLeavePage = Boolean(getInput().value.length);
+  });
+
   document.addEventListener('keydown', event => {
     if(event.key !== 's' && event.keyCode !== 83) { return; }
 
@@ -34,7 +40,7 @@ function onBodyLoad() {
   });
 
   window.onbeforeunload = function () {
-    return Boolean(getInput().value.length);
+    return confirmLeavePage ? 'Are you sure you want to leave without saving?' : null;
   }
 }
 
@@ -52,6 +58,7 @@ function getInput() {
 
 function save() {
   focusInput();
+  confirmLeavePage = false;
 
   const content = getInput().value;
   if(!content.length) { return; }
