@@ -2,7 +2,8 @@
 
 <div align="center">
   <a href="https://github.com/fuchstim/streamtyper">
-    <img src="images/logotype.png" alt="Logo" width="200" height="53">
+    <img src="images/logotype-light.png#gh-light-mode-only" alt="Logo" width="200" height="53">
+    <img src="images/logotype-dark.png#gh-dark-mode-only" alt="Logo" width="200" height="53">
   </a>
 
   <p align="center">
