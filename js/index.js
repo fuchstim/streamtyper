@@ -65,5 +65,7 @@ function save() {
 }
 
 function setTheme(theme) {
+  focusInput();
+  
   document.documentElement.setAttribute('data-theme', theme);
 }
