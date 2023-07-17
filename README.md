@@ -1,7 +1,7 @@
 <br />
 
 <div align="center">
-  <a href="https://github.com/fuchstim/fibrejs">
+  <a href="https://github.com/fuchstim/streamtyper">
     <img src="images/logotype.png" alt="Logo" width="200" height="53">
   </a>
 
@@ -9,7 +9,8 @@
     streamtyper is a simple application to practise distraction-free stream-of-consciousness writing.
   </p>
 
-  <img src="images/screenshot.png" alt="Screenshot">
+  <img src="images/screenshot-light.png#gh-light-mode-only" alt="Screenshot">
+  <img src="images/screenshot-dakr.png#gh-dark-mode-only" alt="Screenshot">
 </div>
 
 ## ToDo
