@@ -20,10 +20,15 @@ body {
   background-color: #fefefe;
 
   mask-image: linear-gradient(to right, transparent, #000);
+  z-index: 0;
 }
 
 #inputText:focus {
   outline: none;
+}
+
+#inputText:placeholder-shown {
+  mask-image: linear-gradient(to right, #000, #000);
 }
 
 #header {
@@ -33,12 +38,15 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  z-index: 1;
 }
 
 #header #logo {
   height: 32px;
   margin-left: 24px;
   line-height: 32px;
+
+  mask-image: linear-gradient(to left, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1));
 }
 
 #header #spacer {
