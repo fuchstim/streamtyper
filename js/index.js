@@ -46,15 +46,13 @@ function focusInput() {
   input.scroll(0, 1000)
 }
 
-function handleGlobalClick() {
-  focusInput()
-}
-
 function getInput() {
   return document.getElementById('inputText');
 }
 
 function save() {
+  focusInput();
+
   const content = getInput().value;
   if(!content.length) { return; }
 
@@ -64,4 +62,8 @@ function save() {
   link.download = "content.txt";
   link.click();
   URL.revokeObjectURL(link.href);
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
 }

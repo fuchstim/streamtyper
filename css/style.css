@@ -1,3 +1,19 @@
+:root {
+  --text-color: #323437;
+  --background-color: #e1e1e3;
+
+  --theme-toggle-dark-display: block;
+  --theme-toggle-light-display: none;
+}
+
+[data-theme="dark"] {
+  --text-color: #d1d0c5;
+  --background-color: #323437;
+
+  --theme-toggle-dark-display: none;
+  --theme-toggle-light-display: block;
+}
+
 html,
 body {
   height: 100vh;
@@ -6,20 +22,22 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 24px;
   line-height: 1.5;
-  color: #002237;
-  background-color: #fefefe;
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 #inputText {
   height: 100vh;
-  width: 50vw;
+  width: 100vw;
+  padding-right: 50vw;
   text-align: right;
   font-size: 24px;
   border: none;
   text-indent: 16px;
-  background-color: #fefefe;
+  color: inherit;
+  background: transparent;
 
-  mask-image: linear-gradient(to right, transparent, #000);
+  mask-image: linear-gradient(to right, transparent, #000 25%);
   z-index: 0;
 }
 
@@ -60,9 +78,18 @@ body {
 }
 
 #header #buttons svg {
+  display: block;
   width: 32px;
   height: 32px;
   margin: 0 8px;
-  fill: #002237;
+  fill: var(--text-color);
   cursor: pointer;
+}
+
+#header #buttons svg.themeToggle#dark {
+  display: var(--theme-toggle-dark-display);
+}
+
+#header #buttons svg.themeToggle#light {
+  display: var(--theme-toggle-light-display);
 }
