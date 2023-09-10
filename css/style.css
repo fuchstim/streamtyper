@@ -1,5 +1,6 @@
 :root {
   --text-color: #002237;
+  --text-color-danger: #CC2936;
   --background-color: #fefefe;
 
   --theme-toggle-dark-display: block;
@@ -8,6 +9,7 @@
 
 [data-theme="dark"] {
   --text-color: #d1d0c5;
+  --text-color-danger: #DF2935;
   --background-color: #323437;
 
   --theme-toggle-dark-display: none;
@@ -26,10 +28,17 @@ body {
   background-color: var(--background-color);
 }
 
-#inputText {
+#content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
   width: 100vw;
-  padding-right: 50vw;
+}
+
+#inputText {
+  width: 50%;
   text-align: right;
   font-size: 24px;
   font-family: inherit;
@@ -48,6 +57,24 @@ body {
 
 #inputText:placeholder-shown {
   mask-image: linear-gradient(to right, #000, #000);
+}
+
+#inputCountdown {
+  width: 50%;
+  margin-left: 0.5em;
+}
+
+#inputCountdown span {
+  font-size: 16px;
+  opacity: 0.5;
+  color: inherit;
+  font-weight: normal;
+}
+
+#inputCountdown span.danger {
+  color: var(--text-color-danger);
+  font-weight: bold;
+  opacity: 0.8;
 }
 
 #header {

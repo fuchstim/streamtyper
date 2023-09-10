@@ -1,6 +1,18 @@
 let confirmLeavePage = false;
+let countdownLength = 0;
+let countdownInterval = null;
+let countdownIntervalCount = 0;
 
 function onBodyLoad() {
+  setupInput();
+}
+
+
+function getInput() {
+  return document.getElementById('inputText');
+}
+
+function setupInput() {
   const input = getInput();
 
   input.addEventListener('blur', function(event) {
@@ -27,6 +39,8 @@ function onBodyLoad() {
 
   input.addEventListener('input', function() {
     confirmLeavePage = Boolean(getInput().value.length);
+    
+    resetCountdown();
   });
 
   document.addEventListener('keydown', event => {
@@ -52,9 +66,65 @@ function focusInput() {
   input.scroll(0, 1000)
 }
 
-function getInput() {
-  return document.getElementById('inputText');
+
+
+function getCountdown() {
+  return document.querySelector('div#inputCountdown span');
 }
+
+function startCountdown(countdown) {
+  countdownLength = countdown;
+
+  resetCountdown();
+}
+
+function resetCountdown() {
+  const countdownSpan = getCountdown();
+  
+  if(countdownLength <= 3) countdownSpan.classList.add('danger');
+  else countdownSpan.classList.remove('danger');
+
+  clearInterval(countdownInterval);
+  
+  if(!countdownLength) {
+    countdownIntervalCount = 0;
+    countdownSpan.innerText = '';
+
+    return;
+  }
+
+  countdownIntervalCount = 0;
+  countdownSpan.innerText = countdownLength;
+
+  countdownInterval = setInterval(function() {
+    const timeRemaining = countdownLength - countdownIntervalCount;
+
+    countdownSpan.innerText = timeRemaining;
+
+    if(timeRemaining <= 3) countdownSpan.classList.add('danger');
+    else countdownSpan.classList.remove('danger');
+
+    if(timeRemaining <= 0) {
+      getInput().value = '';
+      confirmLeavePage = false;
+
+      countdownIntervalCount = 0;
+    }
+
+    if(getInput().value.length) countdownIntervalCount++;
+  }, 1000);
+}
+
+function cycleCountdown() {
+  focusInput();
+
+  const options = [0, 3, 5, 10, 20, 30];
+
+  const countdown = options[(options.indexOf(countdownLength) + 1) % options.length];
+
+  startCountdown(countdown);
+}
+
 
 function save() {
   focusInput();
